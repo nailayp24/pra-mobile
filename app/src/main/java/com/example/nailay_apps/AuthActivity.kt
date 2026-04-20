@@ -39,7 +39,6 @@ class AuthActivity : AppCompatActivity() {
 
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
-                finish() //kill actgivity
             } else {
                 MaterialAlertDialogBuilder(this)
                     .setTitle("Ooopss...")

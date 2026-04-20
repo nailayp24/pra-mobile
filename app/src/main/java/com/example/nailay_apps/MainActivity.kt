@@ -54,9 +54,8 @@ class MainActivity : AppCompatActivity() {
                     dialog.dismiss()
                     sharedPref.edit{
                         clear()
+                        apply()
                     }
-                    val intent = Intent(this, FifthActivity::class.java)
-                    startActivity(intent)
                     finish()
                 }
                 .setNegativeButton("Batal") { dialog, _ ->
