@@ -9,8 +9,11 @@ import androidx.core.content.edit
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.nailay_apps.databinding.ActivityMainBinding
+import com.example.nailay_apps.pertemuan_2.SecondActivity
+import com.example.nailay_apps.pertemuan_3.ThirdActivity
 import com.example.nailay_apps.pertemuan_4.FourthActivity
 import com.example.nailay_apps.pertemuan_5.FifthActivity // Import ini!
+import com.example.nailay_apps.pertemuan_7.SeventhActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class MainActivity : AppCompatActivity() {
@@ -30,6 +33,19 @@ class MainActivity : AppCompatActivity() {
 
         val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
 
+
+        // ---  INI UNTUK PERTEMUAN 2 ---
+        binding.btnToSecond.setOnClickListener {
+            val intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
+        }
+
+        // ---  INI UNTUK PERTEMUAN 3 ---
+        binding.btnToThird.setOnClickListener {
+            val intent = Intent(this, ThirdActivity::class.java)
+            startActivity(intent)
+        }
+
         // Tombol ke Pertemuan 4
         binding.btnToFourth.setOnClickListener {
             val intent = Intent(this, FourthActivity::class.java)
@@ -42,6 +58,12 @@ class MainActivity : AppCompatActivity() {
         // ---  INI UNTUK PERTEMUAN 5 ---
         binding.btnToFifth.setOnClickListener {
             val intent = Intent(this, FifthActivity::class.java)
+            startActivity(intent)
+        }
+
+        // ---  INI UNTUK PERTEMUAN 7 ---
+        binding.btnToSeventh.setOnClickListener {
+            val intent = Intent(this, SeventhActivity::class.java)
             startActivity(intent)
         }
 
