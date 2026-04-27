@@ -1,6 +1,5 @@
-package com.example.nailay_apps.pertemuan_7
+package com.example.nailay_apps.Home.pertemuan_7
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
@@ -9,9 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.nailay_apps.R
-import com.example.nailay_apps.databinding.ActivityAuthBinding
 import com.example.nailay_apps.databinding.ActivitySeventhBinding
-import com.example.nailay_apps.pertemuan_5.WebViewActivity
 
 class SeventhActivity : AppCompatActivity() {
 
