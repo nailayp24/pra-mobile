@@ -1,15 +1,15 @@
 package com.example.nailay_apps
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.nailay_apps.Home.HomeFragment
+import com.example.nailay_apps.Message.MessageFragment // Pastikan import ini ada
+import com.example.nailay_apps.More.MoreFragment       // Pastikan import ini ada
 import com.example.nailay_apps.databinding.ActivityBaseBinding
-import com.example.nailay_apps.databinding.ActivitySeventhBinding
 
 class BaseActivity : AppCompatActivity() {
 
@@ -20,42 +20,43 @@ class BaseActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityBaseBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
             insets
         }
 
-
+        // Tampilkan HomeFragment sebagai halaman awal
         replaceFragment(HomeFragment())
 
         binding.bottomNavView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {
-                    Toast.makeText(this, "Home Clicked", Toast.LENGTH_SHORT).show()
+                    replaceFragment(HomeFragment())
                     true
                 }
 
                 R.id.message -> {
-                    Toast.makeText(this, "Message Clicked", Toast.LENGTH_SHORT).show()
+                    // Berpindah ke MessageFragment
+                    replaceFragment(MessageFragment())
                     true
                 }
 
                 R.id.more -> {
-                    Toast.makeText(this, "More Clicked", Toast.LENGTH_SHORT).show()
+                    // Berpindah ke MoreFragment agar tidak kosong
+                    replaceFragment(MoreFragment())
                     true
                 }
 
-                else -> false // return false jika item tidak ada yang di klik
+                else -> false
             }
         }
     }
 
-
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(binding.fragmentContainer.id, fragment)
-            //.addToBackStack(null) -> ini kita nonaktifkan agar saat back langsung keluar aplikasi
             .commit()
     }
 }
