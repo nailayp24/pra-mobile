@@ -15,6 +15,7 @@ import com.example.nailay_apps.Home.pertemuan_3.ThirdActivity
 import com.example.nailay_apps.Home.pertemuan_4.FourthActivity
 import com.example.nailay_apps.Home.pertemuan_5.FifthActivity
 import com.example.nailay_apps.Home.pertemuan_7.SeventhActivity
+import com.example.nailay_apps.Home.pertemuan_8.EightActivity
 import com.example.nailay_apps.R
 import com.example.nailay_apps.databinding.FragmentHomeBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -74,6 +75,12 @@ class HomeFragment : Fragment() {
         // ---  INI UNTUK PERTEMUAN 7 ---
         binding.btnToSeventh.setOnClickListener {
             val intent = Intent(requireContext(), SeventhActivity::class.java)
+            startActivity(intent)
+        }
+
+        // ---  INI UNTUK PERTEMUAN 8 ---
+        binding.btnToEight.setOnClickListener {
+            val intent = Intent(requireContext(), EightActivity::class.java)
             startActivity(intent)
         }
 
