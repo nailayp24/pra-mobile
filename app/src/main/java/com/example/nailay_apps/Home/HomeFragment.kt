@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
+import com.example.nailay_apps.Home.pertemuan_10.TenthActivity
 import com.example.nailay_apps.Home.pertemuan_2.SecondActivity
 import com.example.nailay_apps.Home.pertemuan_3.ThirdActivity
 import com.example.nailay_apps.Home.pertemuan_4.FourthActivity
@@ -84,6 +85,10 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+        // ---  INI UNTUK PERTEMUAN 10 ---
+        binding.btnToTenth.setOnClickListener {
+            startActivity(Intent(requireContext(), TenthActivity::class.java))
+        }
 
         binding.btnLogout.setOnClickListener {
             MaterialAlertDialogBuilder(requireContext())

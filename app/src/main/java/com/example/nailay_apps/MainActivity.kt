@@ -69,11 +69,7 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        // ---  INI UNTUK PERTEMUAN 10 ---
-        binding.btnTo.setOnClickListener {
-            val intent = Intent(this, TenthActivity::class.java)
-            startActivity(intent)
-        }
+
 
 
         binding.btnLogout.setOnClickListener {
