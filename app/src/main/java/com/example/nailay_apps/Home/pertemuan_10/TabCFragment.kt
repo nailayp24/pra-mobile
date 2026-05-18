@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nailay_apps.R
 import com.example.nailay_apps.databinding.FragmentHomeBinding
 import com.example.nailay_apps.databinding.FragmentTabCBinding
@@ -93,10 +94,10 @@ class TabCFragment : Fragment() {
 
         binding.rvProducts.apply {
             /** Mode Grid **/
-            layoutManager = GridLayoutManager(requireContext(), 1)
+            //layoutManager = GridLayoutManager(requireContext(), 1)
 
             /** Jika ingin model Linear **/
-            //layoutManager = LinearLayoutManager(requireContext())
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
             this.adapter = adapter
         }
