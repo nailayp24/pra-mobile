@@ -12,8 +12,9 @@ import com.example.nailay_apps.databinding.ActivityMainBinding
 import com.example.nailay_apps.Home.pertemuan_2.SecondActivity
 import com.example.nailay_apps.Home.pertemuan_3.ThirdActivity
 import com.example.nailay_apps.Home.pertemuan_4.FourthActivity
-import com.example.nailay_apps.Home.pertemuan_5.FifthActivity // Import ini!
+import com.example.nailay_apps.Home.pertemuan_5.FifthActivity
 import com.example.nailay_apps.Home.pertemuan_7.SeventhActivity
+import com.example.nailay_apps.Home.pertemuan_10.TenthActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class MainActivity : AppCompatActivity() {
@@ -64,6 +65,13 @@ class MainActivity : AppCompatActivity() {
         // ---  INI UNTUK PERTEMUAN 7 ---
         binding.btnToSeventh.setOnClickListener {
             val intent = Intent(this, SeventhActivity::class.java)
+            startActivity(intent)
+        }
+
+
+        // ---  INI UNTUK PERTEMUAN 10 ---
+        binding.btnTo.setOnClickListener {
+            val intent = Intent(this, TenthActivity::class.java)
             startActivity(intent)
         }
 

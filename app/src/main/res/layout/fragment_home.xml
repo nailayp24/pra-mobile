@@ -6,6 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Home.HomeFragment">
 
+
+
     <View
         android:id="@+id/background_header"
         android:layout_width="0dp"
@@ -36,7 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.764" />
+        app:layout_constraintVertical_bias="0.682" />
 
     <Button
         android:id="@+id/btnToEight"
@@ -47,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.86" />
+        app:layout_constraintVertical_bias="0.783" />
 
     <Button
         android:id="@+id/btnToSecond"
@@ -58,7 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.376" />
+        app:layout_constraintVertical_bias="0.3" />
 
     <Button
         android:id="@+id/btnToThird"
@@ -69,7 +71,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.924" />
+        app:layout_constraintVertical_bias="0.974" />
 
     <Button
         android:id="@+id/btnToFourth"
@@ -80,7 +82,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.576" />
+        app:layout_constraintVertical_bias="0.468" />
 
     <Button
         android:id="@+id/btnToFifth"
@@ -91,6 +93,18 @@
         app:layout_constraintTop_toBottomOf="@+id/btnToFourth"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnToTenth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tombol ke 10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.872" />
 
     <Button
         android:id="@+id/btnLogout"
