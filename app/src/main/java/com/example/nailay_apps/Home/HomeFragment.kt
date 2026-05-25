@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
+import androidx.lifecycle.lifecycleScope // Pastikan import ini ada untuk coroutine
 import com.example.nailay_apps.Home.pertemuan_10.TenthActivity
 import com.example.nailay_apps.Home.pertemuan_2.SecondActivity
 import com.example.nailay_apps.Home.pertemuan_3.ThirdActivity
@@ -18,9 +19,10 @@ import com.example.nailay_apps.Home.pertemuan_5.FifthActivity
 import com.example.nailay_apps.Home.pertemuan_7.SeventhActivity
 import com.example.nailay_apps.Home.pertemuan_8.EightActivity
 import com.example.nailay_apps.R
+import com.example.nailay_apps.data.api.CatFactApiClient
 import com.example.nailay_apps.databinding.FragmentHomeBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-
+import kotlinx.coroutines.launch // Pastikan import ini ada
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -30,14 +32,12 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        /** Ganti menjadi versi binding */
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState) // Tambahkan super call untuk keamanan lifecycle
 
         val sharedPref = requireContext().getSharedPreferences("user_pref", MODE_PRIVATE)
 
@@ -90,13 +90,17 @@ class HomeFragment : Fragment() {
             startActivity(Intent(requireContext(), TenthActivity::class.java))
         }
 
+        // Memanggil fungsi load data pertama kali fragment dibuat
+        loadCatFact()
+
+        // Tombol Logout
         binding.btnLogout.setOnClickListener {
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle("Konfirmasi")
                 .setMessage("Apakah Anda yakin ingin keluar?")
                 .setPositiveButton("Ya") { dialog, _ ->
                     dialog.dismiss()
-                    sharedPref.edit{
+                    sharedPref.edit {
                         clear()
                         apply()
                     }
@@ -104,9 +108,32 @@ class HomeFragment : Fragment() {
                 }
                 .setNegativeButton("Batal") { dialog, _ ->
                     dialog.dismiss()
-                    Log.e("Info Dialog","Anda memilih Tidak!")
+                    Log.e("Info Dialog", "Anda memilih Tidak!")
                 }
                 .show()
         }
+
+        // Tombol Refresh
+        binding.btnRefresh.setOnClickListener {
+            loadCatFact()
+        }
+    }
+
+    // --- FUNGSI SEKARANG BERDIRI SENDIRI DI LUAR onViewCreated ---
+    private fun loadCatFact() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            try {
+                val response = CatFactApiClient.apiService.getCatFact()
+                binding.tvCatFact.text = "\"${response.fact}\""
+            } catch (e: Exception) {
+                binding.tvCatFact.text = "Gagal mengambil fakta kucing."
+                Log.e("HomeFragment", "Error fetch API", e)
+            }
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
