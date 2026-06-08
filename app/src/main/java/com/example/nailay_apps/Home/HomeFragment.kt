@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import androidx.lifecycle.lifecycleScope // Pastikan import ini ada untuk coroutine
 import com.example.nailay_apps.Home.pertemuan_10.TenthActivity
+import com.example.nailay_apps.Home.pertemuan_13.ThirteenthActivity
+import com.example.nailay_apps.Home.pertemuan_13.ThirteenthTabsAdapter
 import com.example.nailay_apps.Home.pertemuan_2.SecondActivity
 import com.example.nailay_apps.Home.pertemuan_3.ThirdActivity
 import com.example.nailay_apps.Home.pertemuan_4.FourthActivity
@@ -88,6 +90,11 @@ class HomeFragment : Fragment() {
         // ---  INI UNTUK PERTEMUAN 10 ---
         binding.btnToTenth.setOnClickListener {
             startActivity(Intent(requireContext(), TenthActivity::class.java))
+        }
+
+        // ---  INI UNTUK PERTEMUAN 10 ---
+        binding.btnToThirteenth.setOnClickListener {
+            startActivity(Intent(requireContext(), ThirteenthActivity::class.java))
         }
 
         // Memanggil fungsi load data pertama kali fragment dibuat
